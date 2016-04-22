@@ -1,2 +1,4 @@
-# actp_app
-Test app for the ACTP
+actp_app
+========
+
+A Symfony project created on April 22, 2016, 6:28 am.
