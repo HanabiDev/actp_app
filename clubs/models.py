@@ -10,41 +10,10 @@ class Club(models.Model):
 	logo = models.ImageField(upload_to='uploads/clubs/logos/', verbose_name=u'Logo')
 	header_image = models.ImageField(upload_to='uploads/clubs/headers/', verbose_name=u'Imagen de perfil')
 	header_description = models.CharField(max_length=100, verbose_name=u'Descripción de la imagen')
-	president = models.ForeignKey('Partner', related_name='president', null=True, blank=True, verbose_name=u'Presidente')
+	president = models.ForeignKey(User, related_name='president', null=True, blank=True, verbose_name=u'Presidente')
 	foundation = models.DateField(verbose_name=u'Fecha de fundación')
 	is_active = models.BooleanField(default=True, verbose_name=u'Club activo')
 	website = models.URLField(null=True, blank=True, verbose_name=u'Sitio web')
 	fb_page = models.URLField(null=True, blank=True, verbose_name=u'Facebook')
 	tw_page = models.URLField(null=True, blank=True, verbose_name=u'Twitter')
 	yt_page = models.URLField(null=True, blank=True, verbose_name=u'Youtube')
-
-
-def get_path(instance,file):
-	return 'uploads/partners/'+str(instance.user.id)+'/'+file
-
-
-class Partner(User):
-	GENDERS = (
-		("M", "Masculino"),
-		("F", "Femenino")
-	)
-	# Affiliation Info
-	models.ForeignKey(Club, related_name='partner_club').contribute_to_class(User, 'club')
-	models.BooleanField(default=False).contribute_to_class(User, 'is_approved')
-
-	# Personal info
-	models.CharField(max_length=30).contribute_to_class(User, 'doc_id')
-	models.DateField(max_length=10).contribute_to_class(User, 'birth_date')
-	models.CharField(max_length=30, choices=GENDERS).contribute_to_class(User, 'gender')
-	models.CharField(max_length=10).contribute_to_class(User, 'phone')
-	models.CharField(max_length=50).contribute_to_class(User, 'address')
-	models.ImageField(upload_to=get_path).contribute_to_class(User, 'photo')
-
-	# Support files
-	models.FileField(upload_to=get_path).contribute_to_class(User, 'dni_support')
-	models.FileField(upload_to=get_path).contribute_to_class(User, 'reference_letter')
-	models.FileField(upload_to=get_path).contribute_to_class(User, 'request_letter')
-	models.FileField(upload_to=get_path).contribute_to_class(User, 'release_letter')
-	models.FileField(upload_to=get_path).contribute_to_class(User, 'eps_affiliation')
-	models.FileField(upload_to=get_path).contribute_to_class(User, 'legal_records')
-	models.FileField(upload_to=get_path).contribute_to_class(User, 'bank_deposit')

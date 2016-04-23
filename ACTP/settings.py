@@ -37,6 +37,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'ACTP',
     'clubs',
+    'partners',
 )
 
 MIDDLEWARE_CLASSES = (
