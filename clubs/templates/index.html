@@ -26,7 +26,7 @@
 				</div>
 				<div class="card-action">
 					<div class="card-action-btn pull-left">
-						<a class="btn btn-flat waves-attach waves-effect" href="{% url 'clubs:edit' club.id %}">
+						<a class="btn btn-flat waves-attach waves-effect" href="{% url 'clubs:view' club.id %}">
 							<span class="icon">remove_red_eye</span>&nbsp;Ver
 						</a>
 						<a class="btn btn-flat waves-attach waves-effect" href="{% url 'clubs:edit' club.id %}">
@@ -41,7 +41,7 @@
 		</div>
 	</div>
 	{% empty %}
-	<div class="col-lg-8 col-sm-8 col-sm-push-2">
+	<div class="col-lg-8 col-sm-8 col-sm-push-2 col-xs-push-0">
 		<div class="card">
 			<div class="card-main">
 				<div class="card-header">
@@ -49,8 +49,8 @@
 						<span class="card-heading">No se han registrado clubes</span>
 					</div>
 				</div>
-				<div class="card-img" style="max-height:150px; vertical-align:middle">
-					<img alt="alt text" src="{% static 'images/samples/landscape.jpg' %}" style="margin-top:-175px;width: 100%;">
+				<div class="card-img" style="max-height:150px;min-height:100px; vertical-align:middle">
+					<img alt="alt text" src="{% static 'images/samples/landscape.jpg' %}" style="margin-top:-50px;width: 100%;">
 					<p class="card-img-heading">No se han encontrado clubes registrados, puedes agregar un nuevo club a continuación.</p>
 				</div>
 				<div class="card-action">

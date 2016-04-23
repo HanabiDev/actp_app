@@ -24,8 +24,9 @@ def create_club(request):
 
 		return render_to_response('club.html', {'form': form}, context_instance=RequestContext(request))
 
-def read_club(request):
-	return render_to_response('index.html', request.session, context_instance=RequestContext(request))
+def read_club(request, club_id):
+	club = Club.objects.get(id=club_id)
+	return render_to_response('club_detail.html', {'club':club}, context_instance=RequestContext(request))
 
 def update_club(request, club_id):
 	club = Club.objects.get(id=club_id)

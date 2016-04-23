@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block section_title %}Clubes{% endblock %}
+{% block main %}
+	<div class="col-lg-4 col-sm-6 col-xs-push-0">
+		<div class="card">
+			<div class="card-main">
+				<div class="card-header">
+					<div class="card-header-side pull-left">
+						<img alt="Logo {{club.name}}" height="40px" src="/media/{{club.logo}}">
+					</div>
+					<div class="card-inner">
+						<span class="card-heading">{{club.name}}</span>
+					</div>
+				</div>
+				<div class="card-img" style="max-height:220px;overflow:hidden">
+					<img alt="alt text" src="/media/{{club.header_image}}" style="width: 100%;">
+					<p class="card-img-heading">{{club.header_description}}</p>
+				</div>
+				<div class="card-action">
+					<div class="card-action-btn pull-right">
+						<a class="btn btn-flat waves-attach waves-effect" href="{% url 'clubs:edit' club.id %}">
+							<span class="icon">edit</span>&nbsp;Editar
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="col-lg-8 col-sm-6 col-xs-push-0">
+		<div class="card">
+			<div class="card-main">
+				<div class="card-inner" style="min-height:237px">
+					<p class="card-heading">Acerca del club</p>
+					<p>&nbsp;</p>
+					<p><b>Fundado: </b>{{ club.foundation }}</p>
+					<p><b>Presidente: </b>{{ club.president.get_full_name }}</p>
+					<p><b>Estado actual: </b>{% if club.is_active %}Activo{% else %}Inactivo{% endif %}</p>
+					<p><b>Total de miembros: </b>{{ club.partner_club.all.count }} miembros</p>
+					<p>&nbsp;</p>
+				</div>
+				<div class="card-action">
+					<div class="card-action-btn pull-right">
+						{% if club.website %}
+							<a class="btn btn-flat waves-attach waves-effect" href="{{club.website}}">
+								<span class="fa fa-globe"></span>&nbsp;Web
+							</a>
+						{% endif %}
+						{% if club.fb_page %}
+							<a class="btn btn-flat waves-attach waves-effect" href="{{club.fb_page}}">
+								<span class="fa fa-facebook-square"></span>&nbsp;facebook
+							</a>
+						{% endif %}
+						{% if club.tw_page %}
+							<a class="btn btn-flat waves-attach waves-effect" href="{{club.tw_page}}">
+								<span class="fa fa-twitter-square"></span>&nbsp;twitter
+							</a>
+						{% endif %}
+						{% if club.tw_page %}
+							<a class="btn btn-flat waves-attach waves-effect" href="{{club.tw_page}}">
+								<span class="fa fa-youtube-square"></span>&nbsp;youtube
+							</a>
+						{% endif %}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}
+
+{% block float_action %}
+{% endblock %}
