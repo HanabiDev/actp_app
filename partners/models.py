@@ -35,3 +35,9 @@ class Partner(User):
 	models.FileField(upload_to=get_path).contribute_to_class(User, 'eps_affiliation')
 	models.FileField(upload_to=get_path).contribute_to_class(User, 'legal_records')
 	models.FileField(upload_to=get_path).contribute_to_class(User, 'bank_deposit')
+
+	def save(self, *args, **kwargs):
+		super(Partner, self).save(*args, **kwargs)
+
+	def __unicode__(self):
+		return self.first_name + ' '+ self.last_name
