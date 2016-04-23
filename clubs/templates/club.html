@@ -1,0 +1,118 @@
+{% extends 'base.html' %}
+
+{% block section_title %}Clubes{% endblock %}
+
+
+{% block main %}
+		<div class="col-lg-8 col-sm-8 col-sm-push-2">
+			<div class="card">
+				<div class="card-main">
+					<form action="." method="POST" enctype="multipart/form-data">
+
+						<div class="card-header">
+							<div class="card-inner">
+								<span class="card-heading">
+									{% if editing %} Editar información del club: {{name}}
+									{% else %}Registrar un nuevo club{% endif %}
+								</span>
+							</div>
+						</div>
+						<div class="card-inner">
+							<div class="col-md-12">
+								{% csrf_token %}
+								{% for field in form %}
+								<div class="form-group form-group-label">
+									<div class="row">
+
+										{% if field.name == 'logo' and editing  %}
+											<div class="col-md-3 col-md-push-1">
+												<img height="40px" src="/media/{{logo}}" alt=""/>
+											</div>
+											<div class="col-md-8">
+										{% elif field.name == 'header_image' and editing %}
+											<div class="col-md-3 col-md-push-1">
+												<img height="40px" src="/media/{{heading}}" alt=""/>
+											</div>
+											<div class="col-md-8">
+										{% else %}
+
+										<div class="col-md-10 col-md-push-1">
+										{% endif %}
+
+											{% if field.name == 'is_active' %}
+											<div class="checkbox switch">
+												<label for="id_{{field.name}}">
+													{{field}}
+													<span class="switch-toggle"></span> {{field.label}}
+												</label>
+											</div>
+											{% else %}
+											<label class="floating-label">{{field.label}}</label>
+											{{field}}
+											{{field.errors}}
+											{% endif %}
+
+
+										</div>
+									</div>
+								</div>
+								{% endfor %}
+							</div>
+
+							<div class="form-group">
+								<div class="row">
+									<div class="col-md-12">
+
+									</div>
+								</div>
+							</div>
+
+						</div>
+
+						<div class="card-action">
+							<div class="card-action-btn pull-right">
+								<a class="btn btn-red waves-attach waves-effect" href="{% url 'clubs:home'%}">
+									<span class="icon">chevron_left</span>&nbsp;Cancelar
+								</a>
+								<button class="btn btn-brand waves-attach waves-effect" href="{% url 'clubs:new'%}">
+									{%if editing%}<span class="icon">save</span>&nbsp; Guardar cambios
+									{% else %}<span class="icon">add</span>&nbsp;Agregar club{% endif %}
+								</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+{% endblock %}
+
+{% block js %}
+	$(document).ready(function(){
+
+		$('#id_foundation').pickdate({
+			cancel: 'Clear',
+			closeOnCancel: false,
+			closeOnSelect: true,
+			container: '',
+			firstDay: 1,
+			format: 'dd/mm/yyyy', // escape any formatting characters with an exclamation mark
+			formatSubmit: 'dd/mm/yyyy',
+			ok: 'Close',
+			selectMonths: true,
+			selectYears: 10,
+			today: ''
+		});
+
+
+
+		$("#id_logo, #id_header_image").hide().siblings('label').after('<input type="text" class="replace form-control"/>');
+		$(".replace").bind('click', function(){
+			$(this).siblings('input[type=file]').click();
+		});
+
+		$("#id_logo, #id_header_image").bind('change', function(){
+			$(this).siblings('.replace').val($(this).val().split(/(\\|\/)/g).pop())
+		});
+
+	});
+{% endblock %}
