@@ -9,7 +9,7 @@ from clubs.models import Club
 
 def home(request):
 	clubs = Club.objects.all().order_by('foundation')
-	return render_to_response('index.html', {'clubs':clubs}, context_instance=RequestContext(request))
+	return render_to_response('clubs_index.html', {'clubs':clubs}, context_instance=RequestContext(request))
 
 def create_club(request):
 	if request.method == 'GET':

@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block section_title %}Socios{% endblock %}
+{% block main %}
+	{% for club in clubs %}
+	<div class="col-lg-4 col-sm-6 col-xs-push-0">
+		<div class="card">
+			<div class="card-main">
+				<div class="card-header">
+					<div class="card-header-side pull-left">
+						<img alt="Logo {{club.name}}" height="40px" src="/media/{{club.logo}}">
+					</div>
+					<div class="card-inner">
+						<span class="card-heading">{{club.name}}</span>
+					</div>
+				</div>
+				<div class="card-img" style="max-height:220px;overflow:hidden">
+					<img alt="alt text" src="/media/{{club.header_image}}" style="width: 100%;">
+					<p class="card-img-heading">{{club.header_description}}</p>
+				</div>
+				<div class="card-inner">
+					<p>
+						{{club.partner_club.all.count}} miembros
+					</p>
+				</div>
+				<div class="card-action">
+					<div class="card-action-btn pull-left">
+						<a class="btn btn-flat waves-attach waves-effect" href="{% url 'clubs:view' club.id %}">
+							<span class="icon">remove_red_eye</span>&nbsp;Ver
+						</a>
+						<a class="btn btn-flat waves-attach waves-effect" href="{% url 'clubs:edit' club.id %}">
+							<span class="icon">edit</span>&nbsp;Editar
+						</a>
+						<a class="btn btn-flat waves-attach waves-effect" href="{% url 'clubs:toggle_active' club.id %}">
+							<span class="icon">power_settings_new</span>&nbsp;{% if club.is_active %}Desactivar{% else %}Activar{% endif %}
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	{% empty %}
+	<div class="col-lg-8 col-sm-8 col-sm-push-2 col-xs-push-0">
+		<div class="card">
+			<div class="card-main">
+				<div class="card-header">
+					<div class="card-inner">
+						<span class="card-heading">No se han registrado socios</span>
+					</div>
+				</div>
+				<div class="card-img" style="max-height:150px;min-height:100px; vertical-align:middle">
+					<img alt="alt text" src="{% static 'images/samples/landscape.jpg' %}" style="margin-top:-50px;width: 100%;">
+					<p class="card-img-heading">No se han encontrado socios registrados, puedes agregar un nuevo socio a continuación.</p>
+				</div>
+				<div class="card-action">
+					<div class="card-action-btn pull-right">
+						<a class="btn btn-brand waves-attach waves-effect" href="{% url 'partners:new'%}">
+							<span class="icon">add</span>&nbsp;Agregar un socio
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	{% endfor %}
+
+{% endblock %}
+
+{% block float_action %}
+	<div class="fbtn-container">
+		<div class="fbtn-inner">
+			<a class="fbtn fbtn-lg fbtn-brand waves-attach waves-circle waves-effect" href="{% url 'partners:new' %}">
+				<span class="icon">add</span>
+				<span class="fbtn-text fbtn-text-left"> Registrar un nuevo socio </span>
+			</a>
+		</div>
+	</div>
+{% endblock %}

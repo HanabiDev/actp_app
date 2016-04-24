@@ -17,3 +17,6 @@ class Club(models.Model):
 	fb_page = models.URLField(null=True, blank=True, verbose_name=u'Facebook')
 	tw_page = models.URLField(null=True, blank=True, verbose_name=u'Twitter')
 	yt_page = models.URLField(null=True, blank=True, verbose_name=u'Youtube')
+
+	def __unicode__(self):
+		return self.name

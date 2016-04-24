@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block section_title %}Clubes{% endblock %}
+{% block section_title %}Socios{% endblock %}
 
 
 {% block main %}
@@ -12,8 +12,8 @@
 						<div class="card-header">
 							<div class="card-inner">
 								<span class="card-heading">
-									{% if editing %} Editar información del club: {{name}}
-									{% else %}Registrar un nuevo club{% endif %}
+									{% if editing %} Editar información del socio: {{name}}
+									{% else %}Registrar un nuevo socio{% endif %}
 								</span>
 							</div>
 						</div>
@@ -21,7 +21,7 @@
 							<div class="col-md-12">
 								{% csrf_token %}
 								{% for field in form %}
-								<div class="form-group form-group-label">
+								<div class="form-group form-group-label col-md-6">
 									<div class="row">
 
 										{% if field.name == 'logo' and editing  %}
@@ -36,7 +36,7 @@
 											<div class="col-md-8">
 										{% else %}
 
-										<div class="col-md-10 col-md-push-1">
+										<div class="col-md-12 col-md-push-0">
 										{% endif %}
 
 											{% if field.name == 'is_active' %}
@@ -71,12 +71,12 @@
 
 						<div class="card-action">
 							<div class="card-action-btn pull-right">
-								<a class="btn btn-red waves-attach waves-effect" href="{% url 'clubs:home'%}">
+								<a class="btn btn-red waves-attach waves-effect" href="{% url 'partners:home'%}">
 									<span class="icon">chevron_left</span>&nbsp;Cancelar
 								</a>
 								<button class="btn btn-brand waves-attach waves-effect">
 									{%if editing%}<span class="icon">save</span>&nbsp; Guardar cambios
-									{% else %}<span class="icon">add</span>&nbsp;Agregar club{% endif %}
+									{% else %}<span class="icon">add</span>&nbsp;Agregar socio{% endif %}
 								</button>
 							</div>
 						</div>
@@ -89,7 +89,7 @@
 {% block js %}
 	$(document).ready(function(){
 
-		$('#id_foundation').pickdate({
+		$('#id_birth_date').pickdate({
 			cancel: 'Clear',
 			closeOnCancel: false,
 			closeOnSelect: true,
@@ -99,13 +99,13 @@
 			formatSubmit: 'dd/mm/yyyy',
 			ok: 'Close',
 			selectMonths: true,
-			selectYears: 10,
+			selectYears: 90,
 			today: ''
 		});
 
 
 
-		$("#id_logo, #id_header_image").hide().siblings('label').after('<input type="text" class="replace form-control"/>');
+		$("#id_photo").hide().siblings('label').after('<input type="text" class="replace form-control"/>');
 		$(".replace").bind('click', function(){
 			$(this).siblings('input[type=file]').click();
 		});
@@ -113,6 +113,8 @@
 		$("#id_logo, #id_header_image").bind('change', function(){
 			$(this).siblings('.replace').val($(this).val().split(/(\\|\/)/g).pop())
 		});
+
+		$('select option:first').html('').removeAttr('selected').removeAttr('value');
 
 	});
 {% endblock %}
