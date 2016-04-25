@@ -14,6 +14,8 @@ def home(request):
 def create_partner(request):
 	if request.method == 'GET':
 		form = PartnerForm()
+
+		print len(form.fieldsets.fieldset.fields)
 		return render_to_response('partner.html', {'form': form}, context_instance=RequestContext(request))
 
 	if request.method == 'POST':

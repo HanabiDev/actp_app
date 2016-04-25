@@ -8,7 +8,6 @@
 			<div class="card">
 				<div class="card-main">
 					<form action="." method="POST" enctype="multipart/form-data">
-
 						<div class="card-header">
 							<div class="card-inner">
 								<span class="card-heading">
@@ -18,41 +17,34 @@
 							</div>
 						</div>
 						<div class="card-inner">
-							<div class="col-md-12">
+							<div class="col-md-12 col-xs-push-0">
 								{% csrf_token %}
-								{% for field in form %}
-								<div class="form-group form-group-label col-md-6">
-									<div class="row">
+								{% for fieldset in form.fieldsets %}
+								<div class="card" style="margin-top:0;margin-bottom:10px;">
+									<div class="card-main">
+										<div class="card-inner">
+											<p>
+												<a class="btn btn-flat collapsed waves-attach waves-effect" data-toggle="collapse" href="#collapse_{{ forloop.counter }}">
+													<span class="collapsed-hide">{{fieldset.legend}}</span>
+													<span class="collapsed-show">{{fieldset.legend}}</span>
+												</a>
+											</p>
 
-										{% if field.name == 'logo' and editing  %}
-											<div class="col-md-3 col-md-push-1">
-												<img height="40px" src="/media/{{logo}}" alt=""/>
+											<div class="collapsible-region collapse" id="collapse_{{ forloop.counter }}">
+												{% for field in fieldset %}
+													{% if not forloop.counter|divisibleby:2 %}
+													<div class="row">
+														{% include 'field_handler.html' %}
+													{% else %}
+														{% include 'field_handler.html' %}
+													</div>
+													{% endif %}
+
+													{% if forloop.last and not forloop.counter|divisibleby:2 %}
+													</div>
+													{% endif %}
+												{% endfor %}
 											</div>
-											<div class="col-md-8">
-										{% elif field.name == 'header_image' and editing %}
-											<div class="col-md-3 col-md-push-1">
-												<img height="40px" src="/media/{{heading}}" alt=""/>
-											</div>
-											<div class="col-md-8">
-										{% else %}
-
-										<div class="col-md-12 col-md-push-0">
-										{% endif %}
-
-											{% if field.name == 'is_active' %}
-											<div class="checkbox switch">
-												<label for="id_{{field.name}}">
-													{{field}}
-													<span class="switch-toggle"></span> {{field.label}}
-												</label>
-											</div>
-											{% else %}
-											<label class="floating-label">{{field.label}}</label>
-											{{field}}
-											{{field.errors}}
-											{% endif %}
-
-
 										</div>
 									</div>
 								</div>
@@ -105,13 +97,16 @@
 
 
 
-		$("#id_photo").hide().siblings('label').after('<input type="text" class="replace form-control"/>');
+		$("#id_photo,#id_dni_support,#id_reference_letter,#id_request_letter,#id_release_letter,#id_eps_affiliation,#id_legal_records,#id_bank_deposit")
+			.hide().siblings('label').after('<input type="text" class="replace form-control"/>');
+
 		$(".replace").bind('click', function(){
 			$(this).siblings('input[type=file]').click();
 		});
 
-		$("#id_logo, #id_header_image").bind('change', function(){
-			$(this).siblings('.replace').val($(this).val().split(/(\\|\/)/g).pop())
+		$("#id_photo,#id_dni_support,#id_reference_letter,#id_request_letter,#id_release_letter,#id_eps_affiliation,#id_legal_records,#id_bank_deposit")
+			.bind('change', function(){
+				$(this).siblings('.replace').val($(this).val().split(/(\\|\/)/g).pop())
 		});
 
 		$('select option:first').html('').removeAttr('selected').removeAttr('value');
