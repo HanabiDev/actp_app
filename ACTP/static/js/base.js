@@ -331,8 +331,8 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
 			formatSubmit: '',
 			max: false,
 			min: false,
-			monthsFull: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-			monthsShort: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+			monthsFull: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+			monthsShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
 			ok: 'OK',
 			onClose: false,
 			onOpen: false,
@@ -343,8 +343,8 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
 			selectMonths: false,
 			selectYears: false,
 			today: 'Today',
-			weekdaysFull: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
-			weekdaysShort: ['S', 'M', 'T', 'W', 'T', 'F', 'S']
+			weekdaysFull: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sa'],
+			weekdaysShort: ['D', 'L', 'M', 'Mi', 'J', 'V', 'S']
 		};
 
 		Datepicker.prototype.display = function (datepickerApi, datepickerRoot, datepickerValue) {

@@ -2,45 +2,77 @@
 {% load static %}
 
 {% block section_title %}Socios{% endblock %}
+{% block padder %}
+<div class="col-lg-12 col-lg-push-0 col-sm-12 col-xs-push-0">
+{% endblock %}
 {% block main %}
-	{% for club in clubs %}
-	<div class="col-lg-4 col-sm-6 col-xs-push-0">
+{% for partner in partners %}
+	<div class="col-lg-12 col-sm-12 col-xs-push-0">
 		<div class="card">
 			<div class="card-main">
-				<div class="card-header">
-					<div class="card-header-side pull-left">
-						<img alt="Logo {{club.name}}" height="40px" src="/media/{{club.logo}}">
+				<div class="card-inner margin-bottom-no">
+					<p class="card-heading">Asociados</p>
+					<div class="card-table">
+						<div class="table-responsive">
+							<table class="table">
+								<thead>
+									<tr>
+										<th></th>
+										<th>Nombre completo</th>
+										<th>No. documento</th>
+										<th>Club</th>
+										<th>Estado</th>
+										<th>Correo</th>
+										<th>Teléfono</th>
+										<th class="text-center">Acción</th>
+									</tr>
+								</thead>
+								<tbody>
+									{% for partner in partners %}
+									<tr>
+										<td><img class="avatar" height="50px" src="/media/{{partner.photo}}" alt=""/></td>
+										<td>{{partner.get_full_name}}</td>
+										<td>{{partner.doc_id}}</td>
+										<td>{{partner.club}}</td>
+										<td>{% if partner.is_active %}Activo{% else %}No activo{% endif %}</td>
+										<td>{{partner.email}}</td>
+										<td>{{partner.phone}}</td>
+										<td>
+											<ul class="nav nav-list margin-no pull-right">
+												<li>
+													<a class="text-black-sec waves-attach waves-effect" href="{% url 'partners:edit' partner.id %}">
+														<b><span class="icon">remove_red_eyes</span>&nbsp;</b>
+													</a>
+												</li>
+												<li>
+													<a class="text-black-sec waves-attach waves-effect" href="{% url 'partners:edit' partner.id %}">
+														<b><span class="icon">edit</span>&nbsp;</b>
+													</a>
+												</li>
+												<li>
+													<a class="text-black-sec waves-attach waves-effect" href="#">
+														<b><span class="icon">lock</span>&nbsp;</b>
+													</a>
+												</li>
+											</ul>
+										</td>
+									</tr>
+								{% endfor %}
+								</tbody>
+							</table>
+						</div>
 					</div>
-					<div class="card-inner">
-						<span class="card-heading">{{club.name}}</span>
-					</div>
-				</div>
-				<div class="card-img" style="max-height:220px;overflow:hidden">
-					<img alt="alt text" src="/media/{{club.header_image}}" style="width: 100%;">
-					<p class="card-img-heading">{{club.header_description}}</p>
-				</div>
-				<div class="card-inner">
-					<p>
-						{{club.partner_club.all.count}} miembros
-					</p>
 				</div>
 				<div class="card-action">
-					<div class="card-action-btn pull-left">
-						<a class="btn btn-flat waves-attach waves-effect" href="{% url 'clubs:view' club.id %}">
-							<span class="icon">remove_red_eye</span>&nbsp;Ver
-						</a>
-						<a class="btn btn-flat waves-attach waves-effect" href="{% url 'clubs:edit' club.id %}">
-							<span class="icon">edit</span>&nbsp;Editar
-						</a>
-						<a class="btn btn-flat waves-attach waves-effect" href="{% url 'clubs:toggle_active' club.id %}">
-							<span class="icon">power_settings_new</span>&nbsp;{% if club.is_active %}Desactivar{% else %}Activar{% endif %}
-						</a>
+					<div class="card-action-btn pull-right">
+						<a class="btn btn-flat waves-attach waves-effect" href="javascript:void(0)"><span class="icon">chevron_left</span></a>
+						<a class="btn btn-flat waves-attach waves-effect" href="javascript:void(0)"><span class="icon">chevron_right</span></a>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	{% empty %}
+{% empty %}
 	<div class="col-lg-8 col-sm-8 col-sm-push-2 col-xs-push-0">
 		<div class="card">
 			<div class="card-main">
@@ -63,7 +95,7 @@
 			</div>
 		</div>
 	</div>
-	{% endfor %}
+{% endfor %}
 
 {% endblock %}
 
@@ -77,3 +109,12 @@
 		</div>
 	</div>
 {% endblock %}
+
+
+
+<img alt="Logo {{club.name}}" height="100px" src="{% url 'partners:qr' %}?data= {{partner.get_full_name}}%0A
+							CC: {{partner.doc_id}}%0A
+							Club: {{partner.club}}%0A
+							{% if partner.is_active %}
+							 Miembro desde: {{ partner.member_since|date:"d/m/Y" }}
+							{% else %} Miembro no activo{% endif %}">

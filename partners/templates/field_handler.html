@@ -1,12 +1,12 @@
 <div class="form-group form-group-label col-md-6 com-xs-push-0">
     {% if field.name == 'photo' and editing  %}
-        <div class="col-md-3 col-md-push-1">
-            <img height="40px" src="/media/{{logo}}" alt=""/>
+        <div class="col-md-2" style="padding:0">
+            <img height="40px" src="/media/{{partner.photo}}" alt=""/>
         </div>
-        <div class="col-md-8">
+        <div class="col-md-10">
     {% else %}
 
-    <div class="col-md-12" style="padding:0">
+    <div class="col-md-12" style="padding:5px">
     {% endif %}
 
         {% if field.name == 'is_active' or field.name == 'is_approved' or field.name == 'is_superuser' or field.name == 'is_staff' %}
@@ -16,12 +16,12 @@
                 <span class="switch-toggle"></span> {{field.label}}
             </label>
         </div>
+        {% elif field.name == 'password' and editing %}
+        {{field}}
         {% else %}
         <label class="floating-label">{{field.label}}</label>
         {{field}}
         {{field.errors}}
         {% endif %}
-
-
     </div>
 </div>

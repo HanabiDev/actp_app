@@ -7,11 +7,21 @@
 		<div class="col-lg-8 col-sm-8 col-sm-push-2 col-xs-push-0 xs-hidden">
 			<div class="card">
 				<div class="card-main">
+					{% if pass %}
+					<div class="alert alert-success">
+						Se ha cambiado la clave del usuario
+						{{form.errors}}
+					</div>
+					{% elif form.errors %}
+					<div class="alert alert-danger">
+						Hay errores en el formulario
+					</div>
+					{% endif %}
 					<form action="." method="POST" enctype="multipart/form-data">
 						<div class="card-header">
 							<div class="card-inner">
 								<span class="card-heading">
-									{% if editing %} Editar información del socio: {{name}}
+									{% if editing %} Editar información del socio: {{partner.get_full_name}}
 									{% else %}Registrar un nuevo socio{% endif %}
 								</span>
 							</div>
@@ -30,7 +40,7 @@
 												</a>
 											</p>
 
-											<div class="collapsible-region collapse" id="collapse_{{ forloop.counter }}">
+											<div class="collapsible-region collapse {% if fieldset.errors %}in{%endif%}" id="collapse_{{ forloop.counter }}">
 												{% for field in fieldset %}
 													{% if not forloop.counter|divisibleby:2 %}
 													<div class="row">
@@ -81,18 +91,16 @@
 {% block js %}
 	$(document).ready(function(){
 
-		$('#id_birth_date').pickdate({
-			cancel: 'Clear',
+		$('#id_birth_date, #id_member_since').pickdate({
 			closeOnCancel: false,
 			closeOnSelect: true,
 			container: '',
 			firstDay: 1,
 			format: 'dd/mm/yyyy', // escape any formatting characters with an exclamation mark
 			formatSubmit: 'dd/mm/yyyy',
-			ok: 'Close',
 			selectMonths: true,
 			selectYears: 90,
-			today: ''
+			today: '',
 		});
 
 

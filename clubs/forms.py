@@ -20,6 +20,4 @@ class ClubForm(forms.ModelForm):
             'fb_page':forms.URLInput(attrs={'class':'form-control'}),
             'tw_page':forms.URLInput(attrs={'class':'form-control'}),
             'yt_page':forms.URLInput(attrs={'class':'form-control'}),
-          'related_articles':forms.SelectMultiple(attrs={'class':'form-control'}),
-          'related_documents':forms.SelectMultiple(attrs={'class':'form-control'}),
         }
