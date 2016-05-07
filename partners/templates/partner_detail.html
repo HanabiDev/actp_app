@@ -65,7 +65,7 @@
 							 Miembro desde: {{ partner.member_since|date:"d/m/Y" }}
 							{% else %} Miembro no activo{% endif %}%0A
 							 {% url 'partners:view' partner.id as uri %}
-							 {% bitlyfy "http://"|add:request.META.HTTP_HOST|add:uri %}">
+							 {% bitlyfy "http://actp.com.co"|add:uri %}">
 						</div>
 					</div>
 				</div>

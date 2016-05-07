@@ -84,7 +84,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'actp',
         'USER': 'root',
-        #'password': 'ACTPdb12',
+        'PASSWORD': 'ACTPdb12',
         'PORT': 3306
     }
 }
@@ -113,11 +113,6 @@ USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 
-# Update database configuration with $DATABASE_URL.
-
-DATABASE_URL = 'mysql://root:ACTPdb12@localhost:3306/actp'
-db_from_env = dj_database_url.config(DATABASE_URL, conn_max_age=500)
-DATABASES['default'].update(db_from_env)
 
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')

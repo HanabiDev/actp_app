@@ -7,7 +7,7 @@ from django.db import models
 from clubs.models import Club
 
 def get_path(instance,file):
-	return 'uploads/partners/'+str(instance.id)+'/'+file
+	return 'uploads/partners/'+str(instance.doc_id)+'/'+file
 
 
 class Partner(User):
