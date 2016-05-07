@@ -3,9 +3,6 @@ from django.conf.urls.static import static
 from django.conf import settings
 
 urlpatterns = [
-    # Examples:
-    # url(r'^$', 'ACTP.views.home', name='home'),
-    # url(r'^blog/', include('blog.urls')),
-    url(r'^clubes/', include('clubs.urls', 'clubs')),
-    url(r'^socios/', include('partners.urls', 'partners')),
+    url(r'^admin', include('backend.urls')),
+    url(r'^', include('frontend.urls', 'frontend')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,0 +1,7 @@
+Asociación Colombiana de Tiro de Precisión
+
+Se ha registrado una solicitud a través del sitio web:
+
+Para revisar esta solicitud use este enlace:
+
+http://actp.com.co{% url 'partners:view' id %}

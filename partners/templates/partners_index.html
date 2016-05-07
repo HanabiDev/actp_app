@@ -6,12 +6,12 @@
 <div class="col-lg-12 col-lg-push-0 col-sm-12 col-xs-push-0">
 {% endblock %}
 {% block main %}
-{% for partner in partners %}
+{% if partners %}
 	<div class="col-lg-12 col-sm-12 col-xs-push-0">
 		<div class="card">
 			<div class="card-main">
 				<div class="card-inner margin-bottom-no">
-					<p class="card-heading">Asociados</p>
+					<p class="card-heading">Socios</p>
 					<div class="card-table">
 						<div class="table-responsive">
 							<table class="table">
@@ -34,13 +34,19 @@
 										<td>{{partner.get_full_name}}</td>
 										<td>{{partner.doc_id}}</td>
 										<td>{{partner.club}}</td>
-										<td>{% if partner.is_active %}Activo{% else %}No activo{% endif %}</td>
+										<td>
+											{% if partner.is_approved and partner.is_active %}
+												<span class="label label-green">Activo</span>
+											{% elif partner.is_approved and not partner.is_active %}
+												<span class="label">Inactivo</span>
+											{% else %} <span class="label label-red">Registrado</span>{% endif %}
+										</td>
 										<td>{{partner.email}}</td>
 										<td>{{partner.phone}}</td>
 										<td>
 											<ul class="nav nav-list margin-no pull-right">
 												<li>
-													<a class="text-black-sec waves-attach waves-effect" href="{% url 'partners:edit' partner.id %}">
+													<a class="text-black-sec waves-attach waves-effect" href="{% url 'partners:view' partner.id %}">
 														<b><span class="icon">remove_red_eyes</span>&nbsp;</b>
 													</a>
 												</li>
@@ -50,14 +56,18 @@
 													</a>
 												</li>
 												<li>
-													<a class="text-black-sec waves-attach waves-effect" href="#">
+													<a class="text-black-sec waves-attach waves-effect" href="{% url 'partners:toggle_active' partner.id %}">
+														{% if partner.is_active %}
 														<b><span class="icon">lock</span>&nbsp;</b>
+														{% else %}
+														<b><span class="icon">lock_open</span>&nbsp;</b>
+														{% endif %}
 													</a>
 												</li>
 											</ul>
 										</td>
 									</tr>
-								{% endfor %}
+									{% endfor %}
 								</tbody>
 							</table>
 						</div>
@@ -72,7 +82,7 @@
 			</div>
 		</div>
 	</div>
-{% empty %}
+{% else %}
 	<div class="col-lg-8 col-sm-8 col-sm-push-2 col-xs-push-0">
 		<div class="card">
 			<div class="card-main">
@@ -95,8 +105,7 @@
 			</div>
 		</div>
 	</div>
-{% endfor %}
-
+{% endif %}
 {% endblock %}
 
 {% block float_action %}
@@ -109,12 +118,3 @@
 		</div>
 	</div>
 {% endblock %}
-
-
-
-<img alt="Logo {{club.name}}" height="100px" src="{% url 'partners:qr' %}?data= {{partner.get_full_name}}%0A
-							CC: {{partner.doc_id}}%0A
-							Club: {{partner.club}}%0A
-							{% if partner.is_active %}
-							 Miembro desde: {{ partner.member_since|date:"d/m/Y" }}
-							{% else %} Miembro no activo{% endif %}">

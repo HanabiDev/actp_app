@@ -1,0 +1,108 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="IE=edge" http-equiv="X-UA-Compatible">
+	<meta content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no, width=device-width" name="viewport">
+	<title>Material</title>
+
+	<!-- css -->
+	<link href="{% static 'css/base.min.css' %}" rel="stylesheet">
+	<link href="{% static 'css/project.min.css' %}" rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+
+	<!-- favicon -->
+	<link rel="icon" href="{% static 'images/favicon.png' %}" sizes="16x16">
+	<!-- ... -->
+</head>
+<body class="page-brand">
+	<main class="content">
+		<div class="content-header ui-content-header">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-6 col-lg-push-3 col-sm-10 col-sm-push-1">
+						<h1 class="content-heading">{% block section_title %}{% endblock %}</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row">
+				{% block padder %}
+				<div class="col-lg-4 col-lg-push-4 col-sm-4 col-sm-push-4">
+				{% endblock %}
+					<section class="content-inner margin-top-no">
+						<div class="card">
+							<div class="card-main">
+								<div class="card-header">
+									<div class="card-inner">
+										<h1 class="card-heading text-center">Acceder</h1>
+									</div>
+								</div>
+								<div class="card-inner">
+									<p class="text-center" style="margin:0;">
+										<span class="avatar avatar-inline avatar-lg" style="width:100px;height:100px;">
+											<img height="100" alt="Login" src="{% static 'images/logo.jpg' %}">
+										</span>
+									</p>
+									<p class="errorlist text-center">{% if error %}{{error}}{% endif %}</p>
+
+
+									<form class="form" action="{% url 'backend_login' %}{% if next %}?next={{next}}{% endif %}" method="POST">
+										{% csrf_token %}
+										<div class="form-group form-group-label">
+											<div class="row">
+												<div class="col-md-10 col-md-push-1">
+													<label class="floating-label" for="ui_login_username">Usuario</label>
+													<input class="form-control" id="ui_login_username" name="username" type="text">
+												</div>
+											</div>
+										</div>
+										<div class="form-group form-group-label">
+											<div class="row">
+												<div class="col-md-10 col-md-push-1">
+													<label class="floating-label" for="ui_login_password">Contraseña</label>
+													<input class="form-control" id="ui_login_password" name="password" type="password">
+												</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<div class="row">
+												<div class="col-md-10 col-md-push-1">
+													<button class="btn btn-block btn-brand waves-attach waves-light">Iniciar sesión</button>
+												</div>
+											</div>
+										</div>
+										<p class="margin-no-top text-center">
+											<a class="btn btn-flat btn-brand waves-attach" href="javascript:void(0)">Recuperar contraseña</a>
+										</p>
+									</form>
+								</div>
+							</div>
+						</div>
+					</section>
+				</div>
+			</div>
+		</div>
+	</main>
+	<footer class="ui-footer">
+		<div class="container">
+			<p>&copy; Asociación Colombiana de Tiro de Precisión - ACTP, 2016</p>
+		</div>
+	</footer>
+	{% block float_action %}
+
+	{% endblock %}
+
+	<!-- js -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+	<script src="{% static 'js/base.min.js' %}"></script>
+	<script src="{% static 'js/project.min.js' %}"></script>
+	<script type="text/javascript">
+		{% block js %}{% endblock %}
+	</script>
+
+</body>
+</html>

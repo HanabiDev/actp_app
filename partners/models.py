@@ -28,9 +28,9 @@ class Partner(User):
 	)
 	# Affiliation Info
 
-	models.ForeignKey(Club, related_name='partner_club').contribute_to_class(User, 'club')
-	models.BooleanField(default=False, verbose_name=u'Aceptado en el club').contribute_to_class(User, 'is_approved')
-	models.DateField(max_length=30, verbose_name=u'Miembro desde').contribute_to_class(User, 'member_since')
+	models.ForeignKey(Club, related_name='partner_club', null=True, blank=True).contribute_to_class(User, 'club')
+	models.BooleanField(default=False, verbose_name=u'Aceptado en la asociación').contribute_to_class(User, 'is_approved')
+	models.DateField(max_length=30, null=True, verbose_name=u'Miembro desde').contribute_to_class(User, 'member_since')
 	# Personal info
 	models.CharField(max_length=30, verbose_name=u'Número de documento').contribute_to_class(User, 'doc_id')
 	models.DateField(max_length=10, verbose_name=u'Fecha de nacimiento').contribute_to_class(User, 'birth_date')

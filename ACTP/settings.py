@@ -36,6 +36,8 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'betterforms',
+    'frontend',
+    'backend',
     'ACTP',
     'clubs',
     'partners',
@@ -82,7 +84,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'actp',
         'USER': 'root',
-        'password': 'ACTPdb12',
+        #'password': 'ACTPdb12',
         'PORT': 3306
     }
 }
@@ -140,3 +142,11 @@ STATICFILES_DIRS = [
 # Simplified static file serving.
 # https://warehouse.python.org/project/whitenoise/
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_USE_TLS = False
+EMAIL_HOST = 's9.ciberpanel.com'
+EMAIL_PORT = 25
+EMAIL_HOST_USER = 'web@actp.com.co'
+EMAIL_HOST_PASSWORD = 'Webmaster123'
