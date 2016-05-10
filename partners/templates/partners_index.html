@@ -33,7 +33,7 @@
 										<td><img class="avatar" height="50px" src="/media/{{partner.photo}}" alt=""/></td>
 										<td>{{partner.get_full_name}}</td>
 										<td>{{partner.doc_id}}</td>
-										<td>{{partner.club}}</td>
+										<td>{% if partner.club %}{{partner.club}}{% else %}Sin club{% endif %}</td>
 										<td>
 											{% if partner.is_approved and partner.is_active %}
 												<span class="label label-green">Activo</span>
