@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load user_tags %}
 {% load static %}
-
+{% block title %}{{partner.get_full_name}}{% endblock %}
 {% block section_title %}Socios{% endblock %}
 {% block main %}
 	<div class="col-lg-4 col-sm-6 col-xs-push-0">

@@ -84,7 +84,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'actp',
         'USER': 'root',
-        'PASSWORD': 'ACTPdb12',
+        #'PASSWORD': 'ACTPdb12',
         'PORT': 3306
     }
 }
