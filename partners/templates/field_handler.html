@@ -1,4 +1,8 @@
+{% if field.name == 'observations' %}
+<div class="form-group form-group-label col-md-12 com-xs-push-0">
+{% else %}
 <div class="form-group form-group-label col-md-6 com-xs-push-0">
+{% endif %}
     {% if field.name == 'photo' and editing  %}
         <div class="col-md-2" style="padding:0">
             <img height="40px" src="/media/{{partner.photo}}" alt=""/>
@@ -9,7 +13,7 @@
     <div class="col-md-12" style="padding:5px">
     {% endif %}
 
-        {% if field.name == 'is_active' or field.name == 'is_approved' or field.name == 'is_superuser' or field.name == 'is_staff' %}
+        {% if field.name == 'have_disease' or field.name == 'is_active' or field.name == 'is_approved' or field.name == 'is_superuser' or field.name == 'is_staff' %}
         <div class="checkbox switch">
             <label for="id_{{field.name}}">
                 {{field}}

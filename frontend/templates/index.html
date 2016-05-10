@@ -74,6 +74,9 @@
 										<p class="text-justify">
 											En esta ocasión los participantes podrán competir en dos deportes: Field Target y Air Benchrest, en las
 											categorías WFTF y Open.
+											(<a class="btn-flat btn-brand" target="_blank" href="{% static 'docs/Programacion_Torneo_Nacional_2016.pdf' %}">
+												<span class="icon">launch</span>Vea aquí la programación
+											</a>)
 										</p>
 										<h4>Inscripción</h4>
 										<p class="text-justify">
@@ -83,30 +86,61 @@
 										</p>
 										<ol class="text-justify">
 											<li>
-												Diligenciar TODA la información solicitada y proveer TODOS los soportes requeridos en el momento
+												Diligenciar la información solicitada y proveer TODOS los soportes requeridos en el momento
 												de la inscripción.
 											</li>
 											<li>
-												Los soportes se deben subir en formato PDF (extensión *.pdf), los siguientes son los soportes
+												Los soportes se deben subir en formato PDF (extensión *.pdf) a excepción de la foto, la cual puede estar en formato
+												JPG o PNG. Los siguientes son los soportes
 												necesarios:
 												<ul>
-													<li>Documento de identidad</li>
+													<li>Foto. Tipo cédula, cuadrada, mínimo de 4cm de lado (150px)</li>
+													<li>Cédula de ciudadanía</li>
 													<li>Carta de recomendación</li>
-													<li>Carta de petición</li>
-													<li>Carta de descargos</li>
+													<li>Carta de solicitud
+														(<a href="{% static 'docs/solicitud.docx' %}" class="btn-flat btn-brand">
+															<span class="icon">cloud_download</span> bajar formato
+														</a>)
+													</li>
+													<li>Carta de exoneración
+														(<a href="{% static 'docs/exoneracion.docx' %}" class="btn-flat btn-brand">
+															<span class="icon">cloud_download</span> bajar formato
+														</a>)
+													</li>
 													<li>Afiliación EPS</li>
-													<li>Antecedentes judiciales</li>
-													<li>Comprobante de consignación bancaria</li>
+													<li>Antecedentes judiciales
+														(<a target="_blank" href="https://antecedentes.policia.gov.co:7005/WebJudicial/" class="btn-flat btn-brand">
+															<span class="icon">launch</span> consultar aquí
+														</a>)
+													</li>
+													<li>Comprobante de consignación o transferencia bancaria
+														(<a href="#bank_modal" class="btn-flat btn-brand" data-toggle="modal">
+															<span class="icon">help</span> cómo pagar
+														</a>)
+													</li>
 												</ul>
-											</li>
-											<li>
-												La consignación bancaria se debe realizar a la siguiente cuenta:
 											</li>
 										</ol>
 										<p class="text-justify">
 											Una vez registrada la solicitud de afiliación, la junta de la ACTP revisará la información y procederá
 											a activar su cuenta de asociado en el sistema. Se enviará un correo a su cuenta de email registrada
 											indicandole los pasos a seguir para acceder a su cuenta y registrar su(s) equipos deportivos.
+										</p>
+										<p>
+											Si desea más información o requiere soporte para el proceso de inscripción, no dude en comunicarse a través
+											de los siguientes medios:
+										</p>
+										<ul>
+											<li><b>Email: </b>actpcolombia@gmail.com <br/></li>
+											<li>
+												<b>Teléfonos: </b><br/>
+												- 300 367 6975 <br/>
+												- 316 389 5500 <br/>
+												- 300 485 9383 <br/>
+											</li>
+										</ul>
+
+
 										</p>
 									</div>
 								</div>
@@ -139,6 +173,35 @@
 			<p>&copy; Asociación Colombiana de Tiro de Precisión - ACTP, 2016</p>
 		</div>
 	</footer>
+	<div aria-hidden="true" class="modal fade" id="bank_modal" role="dialog" tabindex="-1" style="display: none;">
+		<div class="modal-dialog">
+			<div class="card">
+				<div class="card-main">
+					<div class="card-header">
+						<div class="card-inner">
+							<span class="card-heading">Cómo realizar el pago de la inscripción</span>
+						</div>
+					</div>
+					<div class="card-inner">
+						<p class="text-justify">
+							El pago deberá realizarse de la siguiente manera:<br><br>
+							<b>Banco: </b>Bancolombia.<br>
+							<b>A nombre de: </b>Asociación Colombiana de Tiro de Precisión.<br>
+							<b>Cunta de ahorros N°: </b>647 379 034 68<br>
+							<b>Valor: </b> $71.000 (Consignación) o $60.000 (Transferencia)<br>
+						</p>
+					</div>
+					<div class="card-action">
+						<div class="card-action-btn pull-right">
+							<a class="btn btn-flat waves-attach waves-effect" data-dismiss="modal">
+								<span class="icon">close</span>&nbsp;Cerrar
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 	{% block float_action %}
 
 	{% endblock %}

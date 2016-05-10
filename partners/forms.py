@@ -35,8 +35,9 @@ class PartnerForm(b_forms.BetterModelForm):
         model = Partner
         fields = [
             'club','username','password','photo','member_since', 'email', 'is_superuser', 'is_staff', 'is_approved', 'is_active',
-            'first_name', 'last_name', 'doc_id', 'birth_date', 'gender', 'rh', 'phone', 'address', 'dni_support',
-            'reference_letter', 'request_letter', 'release_letter', 'eps_affiliation', 'legal_records', 'bank_deposit',
+            'first_name', 'last_name', 'doc_id', 'birth_date', 'gender', 'rh', 'phone', 'address',
+            'occupation', 'work_phone','work_address','emergency_contact','emergency_phone','have_disease','disease_name','observations',
+            'dni_support', 'reference_letter', 'request_letter', 'release_letter', 'eps_affiliation', 'legal_records', 'bank_deposit',
         ]
 
         widgets={
@@ -58,6 +59,14 @@ class PartnerForm(b_forms.BetterModelForm):
             'gender':forms.widgets.Select(choices=Partner.GENDERS, attrs={'class':'form-control'}),
             'phone': forms.TextInput(attrs={'class':'form-control'}),
             'address': forms.TextInput(attrs={'class':'form-control'}),
+            'occupation': forms.TextInput(attrs={'class':'form-control'}),
+            'work_phone': forms.TextInput(attrs={'class':'form-control'}),
+            'work_address': forms.TextInput(attrs={'class':'form-control'}),
+            'emergency_contact': forms.TextInput(attrs={'class':'form-control'}),
+            'emergency_phone': forms.TextInput(attrs={'class':'form-control'}),
+            'have_disease': forms.CheckboxInput(attrs={'class':'access-hide'}),
+            'disease_name': forms.TextInput(attrs={'class':'form-control'}),
+            'observations': forms.Textarea(attrs={'class':'form-control', 'rows':5, 'cols':39}),
             'dni_support': forms.FileInput(attrs={'class':'form-control'}),
             'reference_letter': forms.FileInput(attrs={'class':'form-control'}),
             'request_letter': forms.FileInput(attrs={'class':'form-control'}),
@@ -79,13 +88,18 @@ class PartnerForm(b_forms.BetterModelForm):
 
             Fieldset('personal', fields=(
                 'first_name', 'last_name', 'doc_id', 'birth_date', 'gender', 'rh','phone',
-                'address',
+                'address','occupation', 'work_phone','work_address'
             ), legend=u'2. Información personal'),
+
+            Fieldset('additional', fields=(
+                'emergency_contact','emergency_phone','have_disease',
+                'disease_name','observations'
+            ), legend=u'3. Información adicional'),
 
             Fieldset('soportes', fields=(
                 'dni_support', 'reference_letter', 'request_letter', 'release_letter',
                 'eps_affiliation', 'legal_records', 'bank_deposit',
-            ), legend=u'3. Soportes'),
+            ), legend=u'4. Soportes'),
         )
 
 
@@ -101,8 +115,9 @@ class EditPartnerForm(b_forms.BetterModelForm):
         model = Partner
         fields = [
             'club','username','password','photo','member_since', 'email', 'is_superuser', 'is_staff', 'is_approved', 'is_active',
-            'first_name', 'last_name', 'doc_id', 'birth_date', 'gender', 'rh', 'phone', 'address', 'dni_support',
-            'reference_letter', 'request_letter', 'release_letter', 'eps_affiliation', 'legal_records', 'bank_deposit',
+            'first_name', 'last_name', 'doc_id', 'birth_date', 'gender', 'rh', 'phone', 'address',
+            'occupation', 'work_phone','work_address','emergency_contact','emergency_phone','have_disease','disease_name','observations',
+            'dni_support', 'reference_letter', 'request_letter', 'release_letter', 'eps_affiliation', 'legal_records', 'bank_deposit',
         ]
 
         widgets={
@@ -124,6 +139,14 @@ class EditPartnerForm(b_forms.BetterModelForm):
             'gender':forms.widgets.Select(choices=Partner.GENDERS, attrs={'class':'form-control'}),
             'phone': forms.TextInput(attrs={'class':'form-control'}),
             'address': forms.TextInput(attrs={'class':'form-control'}),
+            'occupation': forms.TextInput(attrs={'class':'form-control'}),
+            'work_phone': forms.TextInput(attrs={'class':'form-control'}),
+            'work_address': forms.TextInput(attrs={'class':'form-control'}),
+            'emergency_contact': forms.TextInput(attrs={'class':'form-control'}),
+            'emergency_phone': forms.TextInput(attrs={'class':'form-control'}),
+            'have_disease': forms.CheckboxInput(attrs={'class':'access-hide'}),
+            'disease_name': forms.TextInput(attrs={'class':'form-control'}),
+            'observations': forms.Textarea(attrs={'class':'form-control', 'rows':5, 'cols':39}),
             'dni_support': forms.FileInput(attrs={'class':'form-control'}),
             'reference_letter': forms.FileInput(attrs={'class':'form-control'}),
             'request_letter': forms.FileInput(attrs={'class':'form-control'}),
@@ -143,15 +166,20 @@ class EditPartnerForm(b_forms.BetterModelForm):
                 'club','photo','username','password','email','member_since','is_superuser','is_staff','is_active','is_approved'
             ), legend=u'1. Información de la cuenta'),
 
-            Fieldset('personal', fields=(
+           Fieldset('personal', fields=(
                 'first_name', 'last_name', 'doc_id', 'birth_date', 'gender', 'rh','phone',
-                'address',
+                'address','occupation', 'work_phone','work_address'
             ), legend=u'2. Información personal'),
+
+            Fieldset('additional', fields=(
+                'emergency_contact','emergency_phone','have_disease',
+                'disease_name','observations'
+            ), legend=u'3. Información adicional'),
 
             Fieldset('soportes', fields=(
                 'dni_support', 'reference_letter', 'request_letter', 'release_letter',
                 'eps_affiliation', 'legal_records', 'bank_deposit',
-            ), legend=u'3. Soportes'),
+            ), legend=u'4. Soportes'),
         )
         
         

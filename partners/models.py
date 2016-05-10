@@ -40,6 +40,22 @@ class Partner(User):
 	models.CharField(max_length=50, verbose_name=u'Dirección').contribute_to_class(User, 'address')
 	models.ImageField(upload_to=get_path, verbose_name=u'Foto').contribute_to_class(User, 'photo')
 
+	#work info
+	models.CharField(max_length=80, verbose_name=u'Ocupación').contribute_to_class(User, 'occupation')
+	models.CharField(max_length=10, verbose_name=u'Teléfono empresa').contribute_to_class(User, 'work_phone')
+	models.CharField(max_length=50, verbose_name=u'Dirección empresa').contribute_to_class(User, 'work_address')
+
+	#emergency info
+	models.CharField(max_length=60, verbose_name=u'Contacto de emergencia').contribute_to_class(User, 'emergency_contact')
+	models.CharField(max_length=10, verbose_name=u'Teléfono del contacto').contribute_to_class(User, 'emergency_phone')
+
+	#health condition
+	models.BooleanField(default=False, verbose_name=u'Padece una enfermedad física o mental').contribute_to_class(User, 'have_disease')
+	models.CharField(max_length=50, verbose_name=u'¿Cúal?', null=True, blank=True).contribute_to_class(User, 'disease_name')
+
+	#observations
+	models.TextField(null=True, blank=True, verbose_name='Observaciones').contribute_to_class(User, 'observations')
+
 	# Support files
 	models.FileField(upload_to=get_path, verbose_name=u'Documento de identificación').contribute_to_class(User, 'dni_support')
 	models.FileField(upload_to=get_path, verbose_name=u'Carta de recomendación').contribute_to_class(User, 'reference_letter')
@@ -48,6 +64,7 @@ class Partner(User):
 	models.FileField(upload_to=get_path, verbose_name=u'Afiliación EPS').contribute_to_class(User, 'eps_affiliation')
 	models.FileField(upload_to=get_path, verbose_name=u'Pasado judicial').contribute_to_class(User, 'legal_records')
 	models.FileField(upload_to=get_path, verbose_name=u'Consignación').contribute_to_class(User, 'bank_deposit')
+
 
 	def __unicode__(self):
 		return self.first_name + ' '+ self.last_name
