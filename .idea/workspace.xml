@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3c79b7ad-036c-4dad-a04f-b9c4b40b4c17" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ACTP/static/docs/Programacion_Torneo_Nacional_2016.pdf" afterPath="$PROJECT_DIR$/ACTP/static/docs/Programacion_Torneo_Nacional_2016.pdf" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/templates/index.html" afterPath="$PROJECT_DIR$/frontend/templates/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ACTP/settings.py" afterPath="$PROJECT_DIR$/ACTP/settings.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="ACTP.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -26,11 +23,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/frontend/templates/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.9615383">
-              <caret line="110" column="83" selection-start-line="110" selection-start-column="83" selection-end-line="110" selection-end-column="83" />
+            <state vertical-scroll-proportion="0.5910653">
+              <caret line="111" column="117" selection-start-line="111" selection-start-column="117" selection-end-line="111" selection-end-column="117" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#1;n#section#0;n#div#0;n#div#0;n#div#1;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#2;n#section#0;n#div#0;n#div#0;n#div#1;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -42,10 +39,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="settings.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ACTP/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.05362776">
+            <state vertical-scroll-proportion="0.0">
               <caret line="86" column="9" selection-start-line="86" selection-start-column="9" selection-end-line="86" selection-end-column="9" />
               <folding />
             </state>
@@ -112,8 +109,8 @@
         <option value="$PROJECT_DIR$/partners/forms.py" />
         <option value="$PROJECT_DIR$/partners/models.py" />
         <option value="$PROJECT_DIR$/partners/templates/partner_detail.html" />
-        <option value="$PROJECT_DIR$/frontend/templates/index.html" />
         <option value="$PROJECT_DIR$/ACTP/settings.py" />
+        <option value="$PROJECT_DIR$/frontend/templates/index.html" />
       </list>
     </option>
   </component>
@@ -796,10 +793,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ACTP/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="86" column="9" selection-start-line="86" selection-start-column="9" selection-end-line="86" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.9615383">
-          <caret line="110" column="83" selection-start-line="110" selection-start-column="83" selection-end-line="110" selection-end-column="83" />
+        <state vertical-scroll-proportion="0.5910653">
+          <caret line="111" column="117" selection-start-line="111" selection-start-column="117" selection-end-line="111" selection-end-column="117" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#1;n#section#0;n#div#0;n#div#0;n#div#1;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#2;n#section#0;n#div#0;n#div#0;n#div#1;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -807,14 +812,6 @@
             <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#0;n#div#2;n#section#0;n#div#0;n#div#0;n#div#1;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ACTP/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.05362776">
-          <caret line="86" column="9" selection-start-line="86" selection-start-column="9" selection-end-line="86" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
