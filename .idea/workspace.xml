@@ -2,8 +2,28 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3c79b7ad-036c-4dad-a04f-b9c4b40b4c17" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/partners/templates/partners_index.html" afterPath="$PROJECT_DIR$/partners/templates/partners_index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ACTP/media/uploads/partners/43535/11426247_10206989171228163_3645752260875450960_n.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ACTP/media/uploads/partners/53455345/11426247_10206989171228163_3645752260875450960_n.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ACTP/media/uploads/partners/43535/8227066092_15001.pdf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ACTP/media/uploads/partners/53455345/8227066092_15001.pdf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ACTP/media/uploads/partners/43535/8227066092_15001_3NImmwH.pdf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ACTP/media/uploads/partners/53455345/8227066092_15001_6JR3Q4c.pdf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ACTP/media/uploads/partners/43535/8227066092_15001_E7pErRw.pdf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ACTP/media/uploads/partners/43535/8227066092_15001_ExLV6Rs.pdf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ACTP/media/uploads/partners/43535/8227066092_15001_KYE3OUt.pdf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ACTP/media/uploads/partners/43535/8227066092_15001_N4RYbGG.pdf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ACTP/media/uploads/partners/53455345/8227066092_15001_WHxLV8r.pdf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ACTP/media/uploads/partners/53455345/8227066092_15001_YOPM30Z.pdf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ACTP/media/uploads/partners/53455345/8227066092_15001_YxxaqJq.pdf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ACTP/media/uploads/partners/53455345/8227066092_15001_e14GT8i.pdf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ACTP/media/uploads/partners/43535/8227066092_15001_hvmtPgL.pdf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ACTP/media/uploads/partners/53455345/8227066092_15001_ouSY5oi.pdf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/templates/affiliation_success.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/templates/confirmation.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/templates/confirmation.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ACTP/settings.py" afterPath="$PROJECT_DIR$/ACTP/settings.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/urls.py" afterPath="$PROJECT_DIR$/frontend/urls.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/views.py" afterPath="$PROJECT_DIR$/frontend/views.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="ACTP.iws" />
@@ -57,6 +77,58 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="affiliation_success.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/frontend/templates/affiliation_success.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-2.0">
+              <caret line="57" column="112" selection-start-line="57" selection-start-column="112" selection-end-line="57" selection-end-column="112" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/frontend/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="6" column="95" selection-start-line="6" selection-start-column="95" selection-end-line="6" selection-end-column="95" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/frontend/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="41" column="34" selection-start-line="41" selection-start-column="34" selection-end-line="41" selection-end-column="34" />
+              <folding>
+                <element signature="e#18#56#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="confirmation.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/frontend/templates/confirmation.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-7.8461537">
+              <caret line="12" column="110" selection-start-line="12" selection-start-column="110" selection-end-line="12" selection-end-column="110" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="confirmation.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/frontend/templates/confirmation.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="11" column="42" selection-start-line="2" selection-start-column="0" selection-end-line="11" selection-end-column="42" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -92,7 +164,6 @@
         <option value="$PROJECT_DIR$/clubs/views.py" />
         <option value="$PROJECT_DIR$/backend/urls.py" />
         <option value="$PROJECT_DIR$/ACTP/urls.py" />
-        <option value="$PROJECT_DIR$/frontend/urls.py" />
         <option value="$PROJECT_DIR$/frontend/templates/affiliation2.html" />
         <option value="$PROJECT_DIR$/frontend/templates/aff.html" />
         <option value="$PROJECT_DIR$/ACTP/auth_checks.py" />
@@ -102,7 +173,6 @@
         <option value="$PROJECT_DIR$/partners/views.py" />
         <option value="$PROJECT_DIR$/frontend/templates/email.txt" />
         <option value="$PROJECT_DIR$/frontend/templates/email.html" />
-        <option value="$PROJECT_DIR$/frontend/views.py" />
         <option value="$PROJECT_DIR$/ACTP/templates/base.html" />
         <option value="$PROJECT_DIR$/clubs/templates/clubs_index.html" />
         <option value="$PROJECT_DIR$/clubs/templates/club_detail.html" />
@@ -118,6 +188,11 @@
         <option value="$PROJECT_DIR$/partners/templates/partner.html" />
         <option value="$PROJECT_DIR$/frontend/templates/affiliation.html" />
         <option value="$PROJECT_DIR$/partners/templates/partners_index.html" />
+        <option value="$PROJECT_DIR$/frontend/urls.py" />
+        <option value="$PROJECT_DIR$/frontend/templates/affiliation_success.html" />
+        <option value="$PROJECT_DIR$/frontend/templates/confirmation.txt" />
+        <option value="$PROJECT_DIR$/frontend/views.py" />
+        <option value="$PROJECT_DIR$/frontend/templates/confirmation.html" />
         <option value="$PROJECT_DIR$/ACTP/settings.py" />
       </list>
     </option>
@@ -519,27 +594,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/clubs/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5915916">
-          <caret line="19" column="0" selection-start-line="7" selection-start-column="8" selection-end-line="19" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Pictures/App/lista.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.6754098">
-          <caret line="48" column="10" selection-start-line="48" selection-start-column="10" selection-end-line="48" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/clubs/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7754491">
-          <caret line="21" column="69" selection-start-line="21" selection-start-column="69" selection-end-line="21" selection-end-column="69" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ACTP/static/js/base.min.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33114755">
@@ -656,6 +710,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33333334">
           <caret line="2544" column="8" selection-start-line="2544" selection-start-column="8" selection-end-line="2544" selection-end-column="8" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -692,13 +747,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.35311574">
           <caret line="9" column="12" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.20782396">
-          <caret line="5" column="18" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
         </state>
       </provider>
     </entry>
@@ -748,6 +796,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="6" column="46" selection-start-line="6" selection-start-column="46" selection-end-line="6" selection-end-column="46" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -755,13 +804,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="10" column="99" selection-start-line="10" selection-start-column="99" selection-end-line="10" selection-end-column="99" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="17" column="32" selection-start-line="17" selection-start-column="32" selection-end-line="17" selection-end-column="32" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -825,6 +868,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.43414634">
           <caret line="57" column="96" selection-start-line="50" selection-start-column="12" selection-end-line="57" selection-end-column="96" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -883,6 +927,48 @@
           <folding>
             <element signature="n#thead#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="6" column="95" selection-start-line="6" selection-start-column="95" selection-end-line="6" selection-end-column="95" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/templates/affiliation_success.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.0">
+          <caret line="57" column="112" selection-start-line="57" selection-start-column="112" selection-end-line="57" selection-end-column="112" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/templates/confirmation.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="11" column="42" selection-start-line="2" selection-start-column="0" selection-end-line="11" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="41" column="34" selection-start-line="41" selection-start-column="34" selection-end-line="41" selection-end-column="34" />
+          <folding>
+            <element signature="e#18#56#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/templates/confirmation.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.8461537">
+          <caret line="12" column="110" selection-start-line="12" selection-start-column="110" selection-end-line="12" selection-end-column="110" />
+          <folding />
         </state>
       </provider>
     </entry>

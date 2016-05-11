@@ -23,8 +23,24 @@ def affiliation(request):
         if form.is_valid():
             partner = form.save()
             send_webmail(partner.id)
-            return redirect(reverse_lazy('frontend:home'))
+            send_confirmation(partner)
+            return redirect(reverse_lazy('frontend:affiliation_success'))
         return render_to_response('affiliation.html', {'form':form}, context_instance=RequestContext(request))
+
+
+def affiliation_success(request):
+    return render_to_response('affiliation_success.html', {}, context_instance=RequestContext(request))
+
+def send_confirmation(user):
+    data = Context({ 'name': user.first_name})
+    text_template = render_to_string('confirmation.txt', data)
+    html_template = render_to_string('confirmation.html', data)
+
+    send_mail(
+        subject=u'Se ha registrado su solicitud en ACTP', message=text_template,
+        html_message=html_template, from_email='Web ACTP <web@actp.com.co>',
+        recipient_list=[user.email,], fail_silently=False
+    )
 
 
 def send_webmail(id):

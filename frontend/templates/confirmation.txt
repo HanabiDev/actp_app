@@ -1,0 +1,12 @@
+Asociación Colombiana de Tiro de Precisión
+
+Hola, {{name}}.
+
+Se ha registrado tu solicitud de afiliación a través del sitio web.
+
+A partir de ahora la junta directiva de la asociación hará la revisión de infomación y documentalcorrespondiente para
+realizar la aprobación de la solicitud. Una vez aprobada se te notificará a través de este medio.
+
+Cordialmente.
+
+Asociación Colombiana de Tiro de Precisión
