@@ -3,6 +3,7 @@
 {% block title %}Socios{% endblock %}
 {% block section_title %}Socios{% endblock %}
 {% block padder %}
+
 <div class="col-lg-12 col-lg-push-0 col-sm-12 col-xs-push-0">
 {% endblock %}
 {% block main %}
@@ -10,8 +11,24 @@
 	<div class="col-lg-12 col-sm-12 col-xs-push-0">
 		<div class="card">
 			<div class="card-main">
+				<div class="card-action">
+                    <div class="card-action-btn pull-right">
+					     {% if partners.has_previous %}
+                            <a class="btn btn-flat waves-attach waves-effect" href="{% if key%}?key={{key}}&{% else %}?{% endif %}page={{ partners.previous_page_number }}">
+                                <span class="icon">chevron_left</span>
+                            </a>
+                        {% endif %}
+                        <span class="btn btn-flat">Página {{ partners.number }} de {{ partners.paginator.num_pages }}</span>
+
+                        {% if partners.has_next %}
+                            <a class="btn btn-flat waves-attach waves-effect" href="{% if key%}?key={{key}}&{% else %}?{% endif %}page={{ partners.next_page_number }}">
+                                <span class="icon">chevron_right</span>
+                            </a>
+                        {% endif %}
+
+					</div>
+				</div>
 				<div class="card-inner margin-bottom-no">
-					<p class="card-heading">Socios</p>
 					<div class="card-table">
 						<div class="table-responsive">
 							<table class="table">
@@ -22,7 +39,7 @@
 										<th>No. documento</th>
 										<th>Club</th>
 										<th>Estado</th>
-										<th>Correo</th>
+										<!--th>Correo</th-->
 										<th>Teléfono</th>
 										<th class="text-center">Acción</th>
 									</tr>
@@ -41,7 +58,7 @@
 												<span class="label">Inactivo</span>
 											{% else %} <span class="label label-red">Registrado</span>{% endif %}
 										</td>
-										<td>{{partner.email}}</td>
+										<!--td>{{partner.email}}</td-->
 										<td>{{partner.phone}}</td>
 										<td>
 											<ul class="nav nav-list margin-no pull-right">
@@ -74,9 +91,20 @@
 					</div>
 				</div>
 				<div class="card-action">
-					<div class="card-action-btn pull-right">
-						<a class="btn btn-flat waves-attach waves-effect" href="javascript:void(0)"><span class="icon">chevron_left</span></a>
-						<a class="btn btn-flat waves-attach waves-effect" href="javascript:void(0)"><span class="icon">chevron_right</span></a>
+                    <div class="card-action-btn pull-right">
+					     {% if partners.has_previous %}
+                            <a class="btn btn-flat waves-attach waves-effect" href="{% if key%}?key={{key}}&{% else %}?{% endif %}page={{ partners.previous_page_number }}">
+                                <span class="icon">chevron_left</span>
+                            </a>
+                        {% endif %}
+                        <span class="btn btn-flat">Página {{ partners.number }} de {{ partners.paginator.num_pages }}</span>
+
+                        {% if partners.has_next %}
+                            <a class="btn btn-flat waves-attach waves-effect" href="{% if key%}?key={{key}}&{% else %}?{% endif %}page={{ partners.next_page_number }}">
+                                <span class="icon">chevron_right</span>
+                            </a>
+                        {% endif %}
+
 					</div>
 				</div>
 			</div>

@@ -12,11 +12,30 @@ from partners.models import Partner
 from django.http.response import HttpResponse
 from qrcode import *
 
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
+
+def paginate_objects(page, objects, per_page=10):
+    paginator = Paginator(objects,per_page)
+
+    try:
+        objects = paginator.page(page)
+    except PageNotAnInteger:
+        objects = paginator.page(1)
+    except EmptyPage:
+        objects = paginator.page(paginator.num_pages)
+
+    return objects
+
 @login_required(login_url=reverse_lazy('backend_login'))
 @user_passes_test(is_superuser, login_url=reverse_lazy('backend_login'))
 def home(request):
-	partners = Partner.objects.all().order_by('-date_joined')
-	return render_to_response('partners_index.html', {'partners': partners}, context_instance=RequestContext(request))
+    if request.method == 'GET':
+        partners = Partner.objects.all().order_by('-date_joined')
+        count = partners.count()
+        page = request.GET.get('page')
+        partners = paginate_objects(page,partners)
+
+    return render_to_response('partners_index.html', {'count':count,'partners': partners}, context_instance=RequestContext(request))
 
 
 @login_required(login_url=reverse_lazy('backend_login'))
@@ -107,7 +126,6 @@ def toggle_status(request, partner_id):
 	partner.is_active = not partner.is_active
 	partner.save()
 	return redirect(reverse_lazy('partners:home'))
-
 
 
 

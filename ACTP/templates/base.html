@@ -16,6 +16,10 @@
 	<!-- favicon -->
 	<link rel="icon" href="{% static 'images/favicon.png' %}" sizes="16x16">
 	<!-- ... -->
+    {% block css %}
+
+    {% endblock %}
+
 </head>
 <body class="page-brand">
 	<header class="header header-transparent header-waterfall ui-header">
@@ -117,6 +121,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 	<script src="{% static 'js/base.min.js' %}"></script>
 	<script src="{% static 'js/project.min.js' %}"></script>
+    {% block js_includes %}{% endblock %}
 	<script type="text/javascript">
 		{% block js %}{% endblock %}
 	</script>

@@ -82,6 +82,7 @@ WSGI_APPLICATION = 'ACTP.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
+        'HOST': '45.55.60.62',
         'NAME': 'actp',
         'USER': 'root',
         'PASSWORD': 'ACTPdb12',

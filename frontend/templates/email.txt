@@ -4,4 +4,4 @@ Se ha registrado una solicitud a través del sitio web:
 
 Para revisar esta solicitud use este enlace:
 
-http://actp.com.co{% url 'partners:view' id %}
+http://app.actp.com.co{% url 'partners:view' id %}

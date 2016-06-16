@@ -6,7 +6,7 @@ from django.core.urlresolvers import reverse_lazy
 from django.forms.utils import flatatt
 from django.forms.widgets import Widget
 from django.utils.html import format_html
-from partners.models import Partner
+from partners.models import Partner, Equipment
 from betterforms import forms as b_forms
 from django import forms
 
@@ -201,3 +201,10 @@ class PasswordForm(SetPasswordForm):
         widgets = {
             'new_password1':forms.PasswordInput(attrs={'class':'form-control'})
         }
+
+
+class EquipmentForm(forms.ModelForm):
+
+    class Meta:
+        model = Equipment
+        exclude = ['owner']
