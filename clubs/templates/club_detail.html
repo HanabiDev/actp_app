@@ -69,6 +69,71 @@
 		</div>
 	</div>
 
+    <div class="col-lg-12 col-sm-12 col-xs-push-0">
+		<div class="card">
+			<div class="card-main">
+				<div class="card-inner margin-bottom-no">
+                    <p class="card-heading">Miembros del club</p>
+					<div class="card-table">
+						<div class="table-responsive">
+							<table class="table">
+								<thead>
+									<tr>
+										<th></th>
+										<th>Nombre completo</th>
+										<th>No. documento</th>
+										<th>Estado</th>
+										<th>Teléfono</th>
+										<th class="text-center">Acción</th>
+									</tr>
+								</thead>
+								<tbody>
+									{% for partner in club.partner_club.all %}
+									<tr>
+										<td><img class="avatar" height="50px" src="/media/{{partner.photo}}" alt=""/></td>
+										<td>{{partner.get_full_name}}</td>
+										<td>{{partner.doc_id}}</td>
+										<td>
+											{% if partner.is_approved and partner.is_active %}
+												<span class="label label-green">Activo</span>
+											{% elif partner.is_approved and not partner.is_active %}
+												<span class="label">Inactivo</span>
+											{% else %} <span class="label label-red">Registrado</span>{% endif %}
+										</td>
+										<td>{{partner.phone}}</td>
+										<td>
+											<ul class="nav nav-list margin-no pull-right">
+												<li>
+													<a class="text-black-sec waves-attach waves-effect" href="{% url 'partners:view' partner.id %}">
+														<b><span class="icon">remove_red_eyes</span>&nbsp;</b>
+													</a>
+												</li>
+												<li>
+													<a class="text-black-sec waves-attach waves-effect" href="{% url 'partners:edit' partner.id %}">
+														<b><span class="icon">edit</span>&nbsp;</b>
+													</a>
+												</li>
+												<li>
+													<a class="text-black-sec waves-attach waves-effect" href="{% url 'partners:toggle_active' partner.id %}">
+														{% if partner.is_active %}
+														<b><span class="icon">lock</span>&nbsp;</b>
+														{% else %}
+														<b><span class="icon">lock_open</span>&nbsp;</b>
+														{% endif %}
+													</a>
+												</li>
+											</ul>
+										</td>
+									</tr>
+									{% endfor %}
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 {% endblock %}
 
 {% block float_action %}

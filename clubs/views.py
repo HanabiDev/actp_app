@@ -1,3 +1,4 @@
+#encoding: utf-8
 from django.contrib.auth.decorators import user_passes_test, login_required
 from django.core.urlresolvers import reverse_lazy
 from django.shortcuts import render, render_to_response, redirect
@@ -34,8 +35,8 @@ def create_club(request):
 @login_required(login_url=reverse_lazy('backend_login'))
 @user_passes_test(is_superuser, login_url=reverse_lazy('backend_login'))
 def read_club(request, club_id):
-	club = Club.objects.get(id=club_id)
-	return render_to_response('club_detail.html', {'club':club}, context_instance=RequestContext(request))
+    club = Club.objects.get(id=club_id)
+    return render_to_response('club_detail.html', {'club':club}, context_instance=RequestContext(request))
 
 
 @login_required(login_url=reverse_lazy('backend_login'))
