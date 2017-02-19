@@ -85,7 +85,7 @@ DATABASES = {
         'HOST': 'localhost',
         'NAME': 'actp',
         'USER': 'root',
-        'PASSWORD': 'Judagox22',
+        'PASSWORD': '', #'Judagox22',
         'PORT': 3306
     }
 }

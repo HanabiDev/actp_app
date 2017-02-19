@@ -6,10 +6,35 @@ from django.shortcuts import render_to_response, redirect
 from django.template.context import RequestContext, Context
 from django.template.loader import render_to_string
 from frontend.forms import AffiliationForm
+from partners.forms import PartnerForm, SubscribeForm
+from partners.models import Partner
 
 
 def home(request):
     return render_to_response('index.html', request.session, context_instance=RequestContext(request))
+
+
+def subscribe(request):
+    if request.method == 'GET':
+        return render_to_response('subscribe_options.html', {}, context_instance=RequestContext(request))
+
+
+def renovation(request):
+    if request.method == 'GET':
+        return render_to_response('subscribe.html', {}, context_instance=RequestContext(request))
+
+    if request.method == 'POST':
+        dni = request.POST.get('dni')
+        try:
+            try:
+                user = Partner.objects.get(doc_id=dni)
+                user.bank_deposit = request.FILES.get('bank_deposit')
+                user.save()
+                return redirect(reverse_lazy('frontend:affiliation_success'))
+            except:
+                return render_to_response('subscribe.html', {'error': 'Ocurrió un error'}, context_instance=RequestContext(request))
+        except:
+            return render_to_response('subscribe.html', {'error': 'El documento no aparece registrado'}, context_instance=RequestContext(request))
 
 
 def affiliation(request):

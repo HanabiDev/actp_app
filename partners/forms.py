@@ -16,6 +16,11 @@ class Button(Widget):
         final_attrs = self.build_attrs(attrs)
         return format_html(u'<a{}>Cambiar contraseña</a>', (flatatt(final_attrs)))
 
+class SubscribeForm(forms.ModelForm):
+    class Meta:
+        model = Partner
+        fields = ['bank_deposit']
+
 class PartnerForm(b_forms.BetterModelForm):
 
     def __init__(self, *args, **kwargs):
