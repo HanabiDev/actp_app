@@ -67,6 +67,7 @@ class Partner(User):
 	models.FileField(upload_to=get_path, verbose_name=u'Certificado EPS').contribute_to_class(User, 'eps_affiliation')
 	models.FileField(upload_to=get_path, verbose_name=u'Pasado judicial').contribute_to_class(User, 'legal_records')
 	models.FileField(upload_to=get_path, verbose_name=u'Comprobante pago').contribute_to_class(User, 'bank_deposit')
+        models.BooleanField(default=False, verbose_name=u"Inscrito al próximo nacional").contribute_to_class(User, 'suscribed')
 
 
 	def __unicode__(self):

@@ -4,6 +4,7 @@ import clubs
 urlpatterns = [
     # Examples:
     url(r'^$', 'partners.views.home', name='home'),
+    url(r'^reporte/$', 'partners.views.report', name='report'),
     url(r'^nuevo/', 'partners.views.create_partner', name='new'),
     url(r'^ver/(?P<partner_id>\d+)/$', 'partners.views.read_partner', name='view'),
     url(r'^qr/$', 'partners.views.get_qr', name='qr'),

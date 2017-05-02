@@ -29,6 +29,7 @@ def renovation(request):
             try:
                 user = Partner.objects.get(doc_id=dni)
                 user.bank_deposit = request.FILES.get('bank_deposit')
+		user.suscribed = True
                 user.save()
                 return redirect(reverse_lazy('frontend:affiliation_success'))
             except:

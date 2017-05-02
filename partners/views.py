@@ -142,3 +142,86 @@ def generate_qr_code(data, size=10, border=0):
 	qr.add_data(data)
 	qr.make(fit=True)
 	return qr.make_image()
+
+
+def report(request):
+    response = HttpResponse(content_type='application/vnd.ms-excel')
+    response['Content-Disposition'] = 'attachment; filename=Report.xlsx'
+    xlsx_data = WriteToExcel()
+    response.write(xlsx_data)
+    return response
+
+
+import StringIO
+import xlsxwriter
+from django.utils.translation import ugettext
+from django.contrib.auth.models import User
+ 
+def WriteToExcel():
+    output = StringIO.StringIO()
+    workbook = xlsxwriter.Workbook(output)
+ 
+    # Here we will adding the code to add data
+    worksheet_s = workbook.add_worksheet("Summary")
+    title = workbook.add_format({
+        'bold': True,
+        'font_size': 14,
+        'align': 'center',
+        'valign': 'vcenter'
+    })
+    header = workbook.add_format({
+        'bg_color': '#F7F7F7',
+        'color': 'black',
+        'align': 'center',
+        'valign': 'vcenter',
+        'border': 1
+    })
+
+    cell = workbook.add_format({
+        'bg_color': '#FFFFFF',
+        'color': 'black',
+        'align': 'justify',
+        'valign': 'middle',
+        'border': 1
+    })
+
+    cell_center = workbook.add_format({
+        'bg_color': '#FFFFFF',
+        'color': 'black',
+        'align': 'center',
+        'valign': 'middle',
+        'border': 1
+    })
+
+
+
+    title_text = u"Reporte de inscritos al Primer Torneo Nacional de FT 2017 - Sutamarchán"
+    worksheet_s.merge_range('A2:D2', title_text, title)
+
+    worksheet_s.write(4, 0, ugettext("#"), header)
+    worksheet_s.write(4, 1, ugettext("Documento"), header)
+    worksheet_s.write(4, 2, ugettext("Nombre completo"), header)
+    worksheet_s.write(4, 3, ugettext("Club"), header)
+
+    worksheet_s.set_column('B:B', 13)
+    worksheet_s.set_column('C:C', 40)
+    worksheet_s.set_column('D:D', 30)
+    worksheet_s.set_row(4, 28)
+    
+    # the rest of the headers from the HTML file
+
+    partners = User.objects.filter(suscribed=True)    
+
+    for idx, partner in enumerate(partners):
+        row = 5 + idx
+        worksheet_s.write_number(row, 0, idx + 1, cell_center)
+        worksheet_s.write_string(row, 1, str(partner.doc_id), cell)
+        worksheet_s.write_string(row, 2, partner.get_full_name(), cell)
+        worksheet_s.write(row, 3, partner.club.name, cell_center)
+        # the rest of the data
+
+ 
+    workbook.close()
+    xlsx_data = output.getvalue()
+    # xlsx_data contains the Excel file
+    return xlsx_data
